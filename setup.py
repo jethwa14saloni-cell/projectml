@@ -1,13 +1,15 @@
 from setuptools import setup, find_packages
 from typing import List
 
-HYPEN_E_DOT = '-e .'
+HYPEN_E_DOT = "-e ."
+
+
 def get_requirements(file_path: str) -> List[str]:
-    '''
+    """
     Reads a requirements file and returns a list of dependencies.
-    '''
+    """
     requirements = []
-    with open(file_path, 'r') as file:
+    with open(file_path, "r") as file:
         requirements = file.readlines()
         requirements = [req.replace("/n", "") for req in requirements]
 
@@ -15,11 +17,12 @@ def get_requirements(file_path: str) -> List[str]:
             requirements.remove(HYPEN_E_DOT)
     return requirements
 
+
 setup(
-    name='ml_project',
-    version='0.0.1',
-    author='saloni jethwa',
-    author_email='jethwa14saloni@gmail.com',
+    name="ml_project",
+    version="0.0.1",
+    author="saloni jethwa",
+    author_email="jethwa14saloni@gmail.com",
     packages=find_packages(),
-    install_requires=get_requirements('requirements.txt')
+    install_requires=get_requirements("requirements.txt"),
 )
